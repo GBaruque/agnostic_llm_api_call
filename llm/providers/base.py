@@ -10,7 +10,7 @@ class BaseProvider(ABC):
     provider-specific request/response handling.
     """
 
-    def __init__(self, api_key: str, api_url: Optional[str] = None, model: Optional[str] = None, timeout: int = 30):
+    def __init__(self, api_key: Optional[str] = None, api_url: Optional[str] = None, model: Optional[str] = None, timeout: int = 30):
         self.api_key = api_key
         self.api_url = api_url
         self.model = model
