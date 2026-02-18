@@ -29,13 +29,13 @@ def test_gemini_maintained_chat(monkeypatch):
     )
     
     countries = ["France", "Germany", "Italy"]
-    for country in countries:
+    capitals = ["Paris", "Berlin", "Rome"]
+    for country, capital in zip(countries, capitals):
         q = f"What is the capital of {country}?"
         response = bot.ask(q)
         assert response is not None, f"Response should not be None for {country}"
         assert isinstance(response, str), f"Response should be a string for {country}"
-        assert country in response, f"Expected '{country}' in response, got: {response}"
-
+        assert capital in response, f"Expected '{capital}' in response, got: {response}"
     response = bot.ask("What were the countries I asked about?")
     assert response is not None, "Response should not be None"
     assert all(country in response for country in countries), \
